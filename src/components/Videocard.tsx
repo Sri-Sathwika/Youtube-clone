@@ -1,0 +1,47 @@
+"use client";
+import { useRouter } from "next/navigation";
+import React from "react";
+
+interface VideoProps {
+  id: string;
+  title: string;
+  channel: string;
+  views: string;
+  timestamp: string;
+  thumbnail: string;
+}
+
+export default function VideoCard({
+  id,
+  title,
+  channel,
+  views,
+  timestamp,
+  thumbnail,
+}: VideoProps) {
+  const router = useRouter();
+
+  return (
+    <div
+      className="w-full h-full cursor-pointer rounded-lg hover:bg-neutral-900 transition duration-200 p-2"
+      onClick={() => router.push(`/watch/${id}`)}
+    >
+      <div className="aspect-video w-full">
+        <img
+          src={thumbnail}
+          alt={title}
+          className="rounded-lg w-full h-full object-cover"
+        />
+      </div>
+      <div className="mt-3 space-y-1">
+        <h3 className="text-base font-semibold text-white line-clamp-2">
+          {title}
+        </h3>
+        <p className="text-sm text-gray-400">{channel}</p>
+        <p className="text-sm text-gray-400">
+          {views} • {timestamp}
+        </p>
+      </div>
+    </div>
+  );
+}
