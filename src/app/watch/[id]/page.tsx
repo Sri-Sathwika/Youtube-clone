@@ -1,8 +1,16 @@
 // src/app/watch/[id]/page.tsx
+
 import { videos } from "@/data/videos";
 import { notFound } from "next/navigation";
+import React from "react";
 
-export default function WatchPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function WatchPage({ params }: PageProps) {
   const video = videos.find((v) => v.id === params.id);
 
   if (!video) return notFound();
@@ -27,6 +35,7 @@ export default function WatchPage({ params }: { params: { id: string } }) {
   );
 }
 
+// for static generation of paths
 export async function generateStaticParams() {
   return videos.map((video) => ({
     id: video.id,
