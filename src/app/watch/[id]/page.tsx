@@ -1,15 +1,15 @@
-// app/watch/[id]/page.tsx
 import { videos } from "@/data/videos";
 import { notFound } from "next/navigation";
 
-interface PageProps {
+export type PageProps = {
   params: {
     id: string;
   };
-}
+};
 
-export default function WatchVideo({ params }: PageProps) {
-  const video = videos.find((v) => v.id === params.id);
+export default function WatchVideo(props: PageProps) {
+  const { id } = props.params;
+  const video = videos.find((v) => v.id === id);
 
   if (!video) return notFound();
 
@@ -27,9 +27,7 @@ export default function WatchVideo({ params }: PageProps) {
       <div className="max-w-4xl w-full">
         <h1 className="text-2xl font-bold">{video.title}</h1>
         <p className="text-gray-500">{video.channel}</p>
-        <p className="text-gray-500">
-          {video.views} • {video.timestamp}
-        </p>
+        <p className="text-gray-500">{video.views} • {video.timestamp}</p>
       </div>
     </div>
   );
