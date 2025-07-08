@@ -4,12 +4,9 @@ import {
   Home,
   Flame,
   PlaySquare,
-  Library,
   ListVideo,
-  BookOpen,
   Clock,
-  Heart,
-  History,
+  HistoryIcon,
   GraduationCap,
   ThumbsUp,
   ShoppingBag,
@@ -40,7 +37,7 @@ const Sidebar = ({ collapsed }: { collapsed: boolean }) => {
     {
       title: "You",
       items: [
-        { icon: <History className="w-6 h-6" />, label: "History" },
+        { icon: <HistoryIcon className="w-6 h-6" />, label: "History" },
         { icon: <ListVideo className="w-6 h-6" />, label: "Playlists" },
         { icon: <GraduationCap className="w-6 h-6" />, label: "Your Courses" },
         { icon: <Clock className="w-6 h-6" />, label: "Watch Later" },
