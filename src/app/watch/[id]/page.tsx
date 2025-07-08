@@ -1,14 +1,14 @@
+// app/watch/[id]/page.tsx
 import { videos } from "@/data/videos";
 import { notFound } from "next/navigation";
 
-// ✅ Correct typing for route-based page components
 interface PageProps {
   params: {
     id: string;
   };
 }
 
-export default function WatchPage({ params }: PageProps) {
+export default function WatchVideo({ params }: PageProps) {
   const video = videos.find((v) => v.id === params.id);
 
   if (!video) return notFound();
