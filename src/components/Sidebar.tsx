@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import {
   Home,
   Flame,
@@ -49,70 +50,84 @@ const Sidebar = ({ collapsed }: { collapsed: boolean }) => {
       items: [
         {
           icon: (
-            <img
+            <Image
               src="/sub-1.jpg"
-              className="w-6 h-6 rounded-full object-cover"
               alt="MrBeast"
+              width={24}
+              height={24}
+              className="rounded-full object-cover"
             />
           ),
           label: "MrBeast",
         },
         {
           icon: (
-            <img
+            <Image
               src="/sub-2.jpg"
-              className="w-6 h-6 rounded-full object-cover"
               alt="T-Series"
+              width={24}
+              height={24}
+              className="rounded-full object-cover"
             />
           ),
           label: "T-Series",
         },
         {
           icon: (
-            <img
+            <Image
               src="/sub-3.jpg"
-              className="w-6 h-6 rounded-full object-cover"
               alt="TED"
+              width={24}
+              height={24}
+              className="rounded-full object-cover"
             />
           ),
           label: "TED",
         },
         {
           icon: (
-            <img
+            <Image
               src="/sub-4.jpg"
-              className="w-6 h-6 rounded-full object-cover"
               alt="Cocomelon"
+              width={24}
+              height={24}
+              className="rounded-full object-cover"
             />
           ),
           label: "Cocomelon",
         },
         {
           icon: (
-            <img
+            <Image
               src="/sub-5.jpg"
-              className="w-6 h-6 rounded-full object-cover"
               alt="Veritasium"
+              width={24}
+              height={24}
+              className="rounded-full object-cover"
             />
           ),
           label: "Veritasium",
         },
         {
           icon: (
-            <img
+            <Image
               src="/sub-6.jpg"
-              className="w-6 h-6 rounded-full object-cover"
               alt="ZEE"
+              width={24}
+              height={24}
+              className="rounded-full object-cover"
             />
           ),
           label: "ZEE Music Company",
         },
         {
           icon: (
-            <img
+            <Image
               src="/sub-7.jpg"
-              className="w-6 h-6 rounded-full object-cover"
               alt="5-Minute Crafts"
+              width={24}
+              height={24}
+              className="rounded-full object-cover"
             />
           ),
           label: "5-Minute Crafts",
@@ -142,30 +157,36 @@ const Sidebar = ({ collapsed }: { collapsed: boolean }) => {
       items: [
         {
           icon: (
-            <img
+            <Image
               src="/sub-1.jpg"
-              className="w-6 h-6 rounded-full object-cover"
               alt="YT Premium"
+              width={24}
+              height={24}
+              className="rounded-full object-cover"
             />
           ),
           label: "YouTube Premium",
         },
         {
           icon: (
-            <img
+            <Image
               src="/sub-2.jpg"
-              className="w-6 h-6 rounded-full object-cover"
               alt="YT Music"
+              width={24}
+              height={24}
+              className="rounded-full object-cover"
             />
           ),
           label: "YouTube Music",
         },
         {
           icon: (
-            <img
+            <Image
               src="/sub-3.jpg"
-              className="w-6 h-6 rounded-full object-cover"
               alt="YT Kids"
+              width={24}
+              height={24}
+              className="rounded-full object-cover"
             />
           ),
           label: "YouTube Kids",
@@ -179,10 +200,12 @@ const Sidebar = ({ collapsed }: { collapsed: boolean }) => {
         { icon: <Settings className="w-6 h-6" />, label: "Settings" },
         { icon: <Flag className="w-6 h-6" />, label: "Report history" },
         { icon: <CircleQuestionMark className="w-6 h-6" />, label: "Help" },
-        { icon: <MessageSquareWarning className="w-6 h-6" />, label: "Send feedback" },
+        {
+          icon: <MessageSquareWarning className="w-6 h-6" />,
+          label: "Send feedback",
+        },
       ],
     },
-
   ];
 
   return (

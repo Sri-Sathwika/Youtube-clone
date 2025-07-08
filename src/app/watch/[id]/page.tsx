@@ -1,8 +1,14 @@
-// app/watch/[id]/page.tsx
-import { videos } from "@/data/videos"; // adjust path if needed
+import { videos } from "@/data/videos";
 import { notFound } from "next/navigation";
 
-export default function WatchVideo({ params }: { params: { id: string } }) {
+// ✅ Correct typing for route-based page components
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function WatchPage({ params }: PageProps) {
   const video = videos.find((v) => v.id === params.id);
 
   if (!video) return notFound();
@@ -21,7 +27,9 @@ export default function WatchVideo({ params }: { params: { id: string } }) {
       <div className="max-w-4xl w-full">
         <h1 className="text-2xl font-bold">{video.title}</h1>
         <p className="text-gray-500">{video.channel}</p>
-        <p className="text-gray-500">{video.views} • {video.timestamp}</p>
+        <p className="text-gray-500">
+          {video.views} • {video.timestamp}
+        </p>
       </div>
     </div>
   );

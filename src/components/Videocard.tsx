@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import React from "react";
 
 interface VideoProps {
@@ -26,11 +27,13 @@ export default function VideoCard({
       className="w-full h-full cursor-pointer rounded-lg hover:bg-neutral-900 transition duration-200 p-2"
       onClick={() => router.push(`/watch/${id}`)}
     >
-      <div className="aspect-video w-full">
-        <img
+      <div className="aspect-video w-full relative">
+        <Image
           src={thumbnail}
           alt={title}
-          className="rounded-lg w-full h-full object-cover"
+          fill
+          className="rounded-lg object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       <div className="mt-3 space-y-1">
