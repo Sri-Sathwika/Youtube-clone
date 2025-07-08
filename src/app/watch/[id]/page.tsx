@@ -1,15 +1,20 @@
 import { videos } from "@/data/videos";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
-export type PageProps = {
+// If you want static paths:
+export async function generateStaticParams() {
+  return videos.map((video) => ({ id: video.id }));
+}
+
+interface Props {
   params: {
     id: string;
   };
-};
+}
 
-export default function WatchVideo(props: PageProps) {
-  const { id } = props.params;
-  const video = videos.find((v) => v.id === id);
+export default function WatchPage({ params }: Props) {
+  const video = videos.find((v) => v.id === params.id);
 
   if (!video) return notFound();
 
