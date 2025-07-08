@@ -4,13 +4,7 @@ import { videos } from "@/data/videos";
 import { notFound } from "next/navigation";
 import React from "react";
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function WatchPage({ params }: PageProps) {
+export default function WatchPage({ params }) {
   const video = videos.find((v) => v.id === params.id);
 
   if (!video) return notFound();
