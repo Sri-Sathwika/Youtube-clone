@@ -1,19 +1,8 @@
+// src/app/watch/[id]/page.tsx
 import { videos } from "@/data/videos";
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
 
-// If you want static paths:
-export async function generateStaticParams() {
-  return videos.map((video) => ({ id: video.id }));
-}
-
-interface Props {
-  params: {
-    id: string;
-  };
-}
-
-export default function WatchPage({ params }: Props) {
+export default function WatchPage({ params }: { params: { id: string } }) {
   const video = videos.find((v) => v.id === params.id);
 
   if (!video) return notFound();
@@ -36,4 +25,10 @@ export default function WatchPage({ params }: Props) {
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  return videos.map((video) => ({
+    id: video.id,
+  }));
 }
