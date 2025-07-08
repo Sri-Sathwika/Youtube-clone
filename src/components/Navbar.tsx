@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { Mic, Search, Menu, Bell, Upload, Radio } from "lucide-react";
 
 export default function Navbar({
@@ -8,11 +9,11 @@ export default function Navbar({
   onToggleSidebar: () => void;
 }) {
   const [showDropdown, setShowDropdown] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !(dropdownRef.current as any).contains(event.target)) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setShowDropdown(false);
       }
     }
@@ -27,10 +28,13 @@ export default function Navbar({
         <button onClick={onToggleSidebar}>
           <Menu className="w-6 h-6 cursor-pointer" />
         </button>
-        <img
-          src="logo.png"
+        <Image
+          src="/logo.png"
           alt="YouTube"
-          className="h-10 text-white"
+          width={100}
+          height={40}
+          className="h-10 w-auto"
+          priority
         />
       </div>
 
@@ -74,10 +78,13 @@ export default function Navbar({
         )}
 
         <Bell className="w-5 h-5 text-white hover:text-gray-300 cursor-pointer" />
-        <img
+        <Image
           src="https://api.dicebear.com/8.x/initials/svg?seed=S"
           alt="user"
+          width={32}
+          height={32}
           className="w-8 h-8 rounded-full"
+          unoptimized
         />
       </div>
     </nav>
